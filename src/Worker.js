@@ -26,5 +26,9 @@ module.exports = class Worker {
     this.worker.on('complete', function (data) {
       console.log('Worker Done:', workerId);
     });
+
+    this.worker.on('failed', function (data) {
+      console.log('Worker Failed:', workerId);
+    });
   }
 }
