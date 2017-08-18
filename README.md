@@ -21,7 +21,7 @@ npm start
 ## POST : /jobs
 
 ### Body Parameters
-- **url** _(required)_ — URL of the page to be parsed.
+- **url** _(required)_ — URL of the page to be parsed. The URL **MUST** have `http://` or `https://` to be considered valid.
 
 ### Return format
 A 200 response, and the Mongo ObjectID string referencing where the document is stored.
