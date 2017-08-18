@@ -15,6 +15,9 @@ npm install
 npm start
 ```
 
+## App runs on `localhost:3000`
+## DB name is `md-challenge`, collection name is `jobs`
+
 ## POST : /jobs
 
 ### Body Parameters
