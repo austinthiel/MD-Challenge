@@ -15,13 +15,18 @@ npm install
 npm start
 ```
 
+## App runs on `localhost:3000`
+## DB name is `md-challenge`, collection name is `jobs`
+
 ## POST : /jobs
 
 ### Body Parameters
-- **url** _(required)_ — URL of the page to be parsed.
+- **url** _(required)_ — URL of the page to be parsed. The URL **MUST** have `http://` or `https://` to be considered valid.
 
 ### Return format
-A response with key "status" and value of 200, and the Mongo ObjectID string referencing where the document is stored.
+A 200 response, and the Mongo ObjectID string referencing where the document is stored.
+
+OR a 400 response and a  string: `"Error: Invalid URL"`
 
 ## GET : /jobs/status/:_id
 
@@ -29,11 +34,14 @@ A response with key "status" and value of 200, and the Mongo ObjectID string ref
 - **_id** _(required)_ — The Mongo ObjectID string given to you via the `/jobs` POST request
 
 ### Return format
-A response with key "status" and value of 200, and one of the following:
+A 200 response, and one of the following:
 
 - **"enqueued"** — The job has been added to the queue.
-- **"dequeued"** — The job was dequeued by a worker for processing. If the URL is invalid or otherwise unable to be processed, the job                      will remain in this state.
-- **The HTML String** — If the job has been successfully completed by a worker, this endpoint will return the HTML string that was                               fetched.
+- **"dequeued"** — The job was dequeued by a worker for processing.
+- **The HTML String** — If the job has been successfully completed by a worker, this endpoint will return the HTML string that was fetched.
+- **"failed"** — The worker attempted to process the URL, but failed (probably due to an invalid/nonexistent URL).
+
+OR a 400 response and a string: `"No job found under that ID"`
 
 
 ## Built With
