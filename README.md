@@ -32,8 +32,9 @@ A response with key "status" and value of 200, and the Mongo ObjectID string ref
 A response with key "status" and value of 200, and one of the following:
 
 - **"enqueued"** — The job has been added to the queue.
-- **"dequeued"** — The job was dequeued by a worker for processing. If the URL is invalid or otherwise unable to be processed, the job                      will remain in this state.
-- **The HTML String** — If the job has been successfully completed by a worker, this endpoint will return the HTML string that was                               fetched.
+- **"dequeued"** — The job was dequeued by a worker for processing.
+- **The HTML String** — If the job has been successfully completed by a worker, this endpoint will return the HTML string that was fetched.
+- **"failed"** — The worker attempted to process the URL, but failed (probably due to an invalid/nonexistent URL).
 
 
 ## Built With
