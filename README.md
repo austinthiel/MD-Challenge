@@ -21,7 +21,8 @@ npm start
 - **url** _(required)_ — URL of the page to be parsed.
 
 ### Return format
-A 200 response, and the Mongo ObjectID string referencing where the document is stored. 
+A 200 response, and the Mongo ObjectID string referencing where the document is stored.
+
 OR a 400 response and a  string: `"Error: Invalid URL"`
 
 ## GET : /jobs/status/:_id
