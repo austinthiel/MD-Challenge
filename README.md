@@ -21,7 +21,8 @@ npm start
 - **url** _(required)_ — URL of the page to be parsed.
 
 ### Return format
-A 200 response, and the Mongo ObjectID string referencing where the document is stored. Or a string: `"Error: Invalid URL"`
+A 200 response, and the Mongo ObjectID string referencing where the document is stored. 
+OR a 400 response and a  string: `"Error: Invalid URL"`
 
 ## GET : /jobs/status/:_id
 
@@ -35,6 +36,8 @@ A 200 response, and one of the following:
 - **"dequeued"** — The job was dequeued by a worker for processing.
 - **The HTML String** — If the job has been successfully completed by a worker, this endpoint will return the HTML string that was fetched.
 - **"failed"** — The worker attempted to process the URL, but failed (probably due to an invalid/nonexistent URL).
+
+OR a 400 response and a string: `"No job found under that ID"`
 
 
 ## Built With
